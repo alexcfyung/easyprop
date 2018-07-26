@@ -9,11 +9,13 @@ import { Property, PropertyService } from './api/client/properties/property.serv
 })
 export class AppComponent implements OnInit {
   title = 'Easy Property Management';
+  clickSwitch: boolean = false;
+  currPropId: string;
 
   properties: Property[] = [];
 
   constructor(
-    private propertyService: PropertyService
+    private propertyService: PropertyService,
   ) { }
 
   ngOnInit(): void {
@@ -25,5 +27,15 @@ export class AppComponent implements OnInit {
       .subscribe(properties => {
         this.properties = properties;
       });
+  }
+  
+  markPropId(id: string) {
+	  this.currPropId = id;
+	  console.log(this.currPropId);
+	  this.clickSwitch = !this.clickSwitch;
+  }
+	  
+  toggleDetail() { 
+	   
   }
 }

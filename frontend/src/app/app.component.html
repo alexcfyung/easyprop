@@ -8,7 +8,8 @@
 <ul>
   <li *ngFor="let prop of properties">
     <h2>
-      <a [href]="'/properties/' + prop._id">{{ prop.name }}</a>
+      <span (click)="markPropId(prop._id)">{{ prop.name }}</span>
     </h2>
+	<div><app-property-detail [clicked]="clickSwitch" [prop]="prop" [clickedPropId]="currPropId"></app-property-detail></div>
   </li>
 </ul>
