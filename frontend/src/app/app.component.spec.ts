@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, TestBed } from '@angular/core/testing';
 
 import { PropertyService } from './api/client/properties/property.service';
+import { PropertyDetailComponent } from './property-detail/property-detail.component';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -11,7 +12,8 @@ describe('AppComponent', () => {
         HttpClientTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+		PropertyDetailComponent
       ],
       providers: [
         PropertyService

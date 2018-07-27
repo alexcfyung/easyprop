@@ -1,0 +1,33 @@
+
+.title {
+	text-align:center;
+	background-color: #9933ff;
+	color: white;
+	height: 10vh;
+	display: grid;
+}
+
+h2 {
+	text-align: center;
+	color: white;
+}
+
+.fix {
+	overflow: auto;
+}
+
+button {
+	float: right;
+	margin-right: 20px;
+}
+
+
+
+.propertylist {
+	background-color: #80b3ff;
+	color: white;
+	align-self: center;
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+}

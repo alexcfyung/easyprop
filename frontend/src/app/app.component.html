@@ -1,12 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="title">
   <h1>
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Properties: </h2>
+<h2>List of Properties</h2>
+<div class="fix"><button (click)="loadProperties()">Refresh</button></div>
 <ul>
-  <li *ngFor="let prop of properties">
+  <li *ngFor="let prop of properties" class="propertylist">
     <h2>
       <span (click)="markPropId(prop._id)">{{ prop.name }}</span>
     </h2>

@@ -1,11 +1,78 @@
-<table *ngIf="showMeDetail">
+<table *ngIf="showMeDetail" class="propertydetail bodyColor">
 	<tr>
 	  <th>Name</th>
 	  <td rowspan="4">
 	    <!-- unit map view -->
+
+		<div *ngFor="let floor of unitsMapKey" class="floor">
+			<span class="floorNumber bodyColor">{{ floor }}</span>
+			<div *ngFor="let u of unitsMap[floor]">
+				<div *ngIf="u.vacant; else notVacant" class="unit vacant unitinfo">
+					<div class="unitinfotext">
+						<table>
+							<tr>
+								<th>Unit #: </th>
+								<td>{{ u.number }}</td>
+							</tr>
+							<tr>
+								<th>Floor: </th>
+								<td>{{ u.floor }}</td>
+							</tr>
+							<tr>
+								<th>Rent: </th>
+								<td>{{ u.rent }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<ng-template #notVacant>
+					<div class="unit notvacant unitinfo">
+						<div class="unitinfotext">
+							<table>
+								<tr>
+									<th>Unit #: </th>
+									<td>{{ u.number }}</td>
+								</tr>
+								<tr>
+									<th>Floor: </th>
+									<td>{{ u.floor }}</td>
+								</tr>
+								<tr>
+									<th>Rent: </th>
+									<td>{{ u.rent }}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</ng-template>
+				
+				
+			</div>
+			
+		</div>
 	  </td>
 	  <td rowspan="4">
 	    <!-- unit list view -->
+		<div class="scrollit">
+			<table class="unitlist">
+			  <thead>
+				  <tr class="headerColor">
+					<th>Unit #</th>
+					<th>Floor</th>
+					<th>Rent ($)</th>
+					<th>Vacant</th>
+				  </tr>
+			  </thead>
+			  <tbody>
+				  <tr *ngFor="let unit of prop.units">
+					<td>{{ unit.number }}</td>
+					<td>{{ unit.floor }}</td>
+					<td>{{ unit.rent }}</td>
+					<td>{{ unit.vacant ? "Available" : "Not Available" }}</td>
+				  </tr>
+			  </tbody>
+			</table>
+		</div>
 	  </td>
 	</tr>
 	<tr>
